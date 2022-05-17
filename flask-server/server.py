@@ -7,19 +7,16 @@ CORS(app, resources={r"/api/*":{"origins":"*"}})
 app.config['CORS HEADERS'] = 'Content-Type'
 @app.route("/")
 @cross_origin()
-def print_news():
-   feed = feedparser.parse(FEED_URL)
-   article = feed['enteries'][0]
-   enteries = feedparser.parse(FEED_URL)['enteries']
-   for entry in enteries:
-        article.append({
-            'id': entry['id'],
-            'link': entry['link'],
-            'title': entry['title'],
-            'summary': entry['summary'],
-            'published': entry['published_parsed'],
 
-     })
+def print_news():
+    feed = feedparser.parse(FEED_URL)
+    return {
+         feed['feed']['title']
+    }
+    
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
