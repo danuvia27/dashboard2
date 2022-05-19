@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
+import Home from "./pages/home/Home";
+import "./App.css";
 
 function App() {
   const [data, setData] = useState([{}]);
@@ -17,7 +19,10 @@ function App() {
   return (
     <div>
       <Navbar />
-
+      <div className="container">
+        <Sidebar />
+        <Home />
+      </div>
       {typeof data.title === "undefined" ? (
         <p>loading...</p>
       ) : (
