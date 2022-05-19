@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
@@ -18,10 +17,6 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div className="container">
-        <Sidebar />
-        other pages
-      </div>
 
       {typeof data.title === "undefined" ? (
         <p>loading...</p>
