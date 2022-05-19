@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineSetting } from "react-icons/ai";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { IoMdTime } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
@@ -16,8 +19,21 @@ function Navbar() {
       <IconContext.Provider value={{ color: "#fff" }}>
         <div className="navbar">
           <div className="navbarWrapper">
-            <div className="topLeft">left</div>
-            <div className="topRight">right</div>
+            <div className="topLeft">
+              <span className="logo">Dashboard</span>
+            </div>
+            <div className="topRight">
+              <div className="topbarIconContainer">
+                <IoMdNotificationsOutline />
+                <span className="topIconBadge">2</span>
+              </div>
+              <div className="topbarIconContainer">
+                <AiOutlineSetting />
+              </div>
+              <div className="topbarIconContainer">
+                <IoMdTime />
+              </div>
+            </div>
           </div>
           <Link to="#" className="menu-bars">
             <AiOutlineUnorderedList onClick={showSidebar} />
