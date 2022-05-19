@@ -11,6 +11,6 @@
   font-family: "Lato", sans-serif;
 }
 
-.title1 {
-  text-align: center;
+.container {
+  display: flex;
 }
