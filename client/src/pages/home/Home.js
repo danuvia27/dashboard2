@@ -1,5 +1,10 @@
+import FeaturedInfo from "../../components/FeaturedInfo/FeaturedInfo";
 import "./home.css";
 
 export default function Home() {
-  return <div className="home">home</div>;
+  return (
+    <div className="home">
+      <FeaturedInfo />
+    </div>
+  );
 }
