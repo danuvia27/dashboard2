@@ -15,7 +15,9 @@ def get_feeds():
     return jsonify(title=first_article.title,
          summary=first_article.summary,
          link=first_article.link, 
-         updated=first_article.updated)    
+         updated=first_article.updated, 
+         description= first_article.description,
+         id= first_article.id) 
          
 if __name__ == '__main__':
     app.run(debug=True)
