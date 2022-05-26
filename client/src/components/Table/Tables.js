@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Tables = () => {
+export default function Tables() {
   return (
     <div>
-      <h3>hello From table</h3>
+      <h1>Hello from Tables</h1>
     </div>
   );
-};
+}

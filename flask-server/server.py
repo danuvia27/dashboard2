@@ -13,14 +13,10 @@ def get_feeds():
     first_article = feed['entries'][0]
     
     return jsonify(title=first_article.title,
-         description=first_article.description,
+         summary=first_article.summary,
          link=first_article.link, 
          updated=first_article.updated)    
-
-   
-
-   
-        
+         
 if __name__ == '__main__':
     app.run(debug=True)
 
