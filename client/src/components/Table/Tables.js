@@ -1,5 +1,13 @@
 import React from "react";
 
 export const Tables = ({ feed }) => {
-  return <div>{feed.title}</div>;
+  return (
+    <div>
+      <ul>
+        <li> {feed.title}</li>
+        <li> {feed.link}</li>
+        <li> {feed.updated}</li>
+      </ul>
+    </div>
+  );
 };
