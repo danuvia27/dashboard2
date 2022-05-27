@@ -1,13 +1,27 @@
 import React from "react";
+import * as ReactBootStrap from "react-bootstrap";
+
+import "./tables.css";
 
 export const Tables = ({ feed }) => {
   return (
     <div>
-      <ul>
-        <li> {feed.title}</li>
-        <li> {feed.link}</li>
-        <li> {feed.updated}</li>
-      </ul>
+      <ReactBootStrap.Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Link</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{feed.title}</td>
+            <td>{feed.link}</td>
+            <td>{feed.updated}</td>
+          </tr>
+        </tbody>
+      </ReactBootStrap.Table>
     </div>
   );
 };
