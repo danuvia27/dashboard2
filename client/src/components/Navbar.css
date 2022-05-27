@@ -32,6 +32,8 @@ span {
 .topRight {
   display: flex;
   align-items: center;
+  position: relative;
+  left: 1400px;
 }
 
 .topbarIconContainer {
