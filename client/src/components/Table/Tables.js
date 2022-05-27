@@ -3,9 +3,9 @@ import * as ReactBootStrap from "react-bootstrap";
 
 import "./tables.css";
 
-export const Tables = ({ feed }) => {
+export const Tables = ({ feed, rssfeed }) => {
   return (
-    <div>
+    <div className="table">
       <ReactBootStrap.Table striped bordered hover>
         <thead>
           <tr>
