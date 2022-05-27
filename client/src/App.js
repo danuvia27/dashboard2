@@ -20,9 +20,11 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Sidebar />
-      <Home />
-      <Tables feed={feed} />
+      <div className="container">
+        <Sidebar />
+        <Home />
+        <Tables feed={feed} />
+      </div>
     </div>
   );
 }
