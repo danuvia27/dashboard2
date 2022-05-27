@@ -7,8 +7,9 @@
 }
 
 .sidebarWrapper {
-  padding: 20px;
+  padding: 15px;
   color: #fff;
+  position: relative;
 }
 
 .sidebarMenu {
