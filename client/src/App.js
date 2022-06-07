@@ -8,11 +8,20 @@ import "./App.css";
 
 function App() {
   const [feed, setFeed] = useState([]);
+  const [feedol, setFeedol] = useState([]);
 
   useEffect(() => {
     fetch("/feed").then((response) =>
       response.json().then((data) => {
         setFeed(data);
+      })
+    );
+  }, []);
+  useEffect(() => {
+    fetch("/feed_ol").then((response) =>
+      response.json().then((data) => {
+        setFeedol(data);
+        console.log(data);
       })
     );
   }, []);
@@ -23,7 +32,7 @@ function App() {
       <div className="container">
         <Sidebar />
         <Home />
-        <Tables feed={feed} />
+        <Tables feed={feed} feedol={feedol} />
       </div>
     </div>
   );
