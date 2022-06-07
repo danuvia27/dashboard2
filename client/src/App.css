@@ -13,4 +13,7 @@
 
 .container {
   display: flex;
+  background-color: #16103a;
+  margin-right: 100px;
+  margin-left: none;
 }
