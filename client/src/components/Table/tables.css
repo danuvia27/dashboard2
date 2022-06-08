@@ -1,14 +1,24 @@
-.table {
-  margin-top: 20px;
-  color: black;
-  table-layout: auto;
-}
-
 .table th {
-  color: black;
+  color: white;
 }
 
-.form-control {
-  width: 75%;
-  align-items: center;
+.table td {
+  color: white;
+}
+
+.table {
+  background-color: #2b2d52;
+  width: 100px;
+  margin: 10px;
+  margin-left: 4px;
+}
+
+.table table-hover a:hover {
+  background-color: gray;
+  color: white;
+}
+
+.card {
+  margin-left: 170px;
+  margin-top: 30px;
 }
