@@ -1,8 +1,14 @@
 .table {
   margin-top: 20px;
-  color: aliceblue;
+  color: black;
+  table-layout: auto;
 }
 
-.table tr {
-  color: aliceblue;
+.table th {
+  color: black;
+}
+
+.form-control {
+  width: 75%;
+  align-items: center;
 }
