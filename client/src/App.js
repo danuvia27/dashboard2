@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/sidebar/Sidebar";
 import { Tables } from "./components/Table/Tables";
-import Home from "./pages/Home";
-
+import Navbar from "./components/Navbar";
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [feed, setFeed] = useState([]);
@@ -27,14 +25,15 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Navbar />
-      <div className="container">
-        <Sidebar />
-        <Home />
-        <Tables feed={feed} feedol={feedol} />
-      </div>
-    </div>
+    <>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" />
+        </Routes>
+      </Router>
+      <Tables feed={feed} feedol={feedol} />
+    </>
   );
 }
 
