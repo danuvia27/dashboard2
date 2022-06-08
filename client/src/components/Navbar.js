@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
+import { Nav } from "react-bootstrap";
 
 export default function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -18,6 +19,22 @@ export default function Navbar() {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <Nav className="justify-content-end" activeKey="/home">
+            <Nav.Item>
+              <Nav.Link href="/home">Active</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-1">Link</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-2">Link</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="disabled" disabled>
+                Disabled
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
