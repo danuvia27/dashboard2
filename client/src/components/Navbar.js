@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
+import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <>
-      <IconContext.Provider value={{ color: "#fff" }}>
+      <IconContext.Provider value={{ color: "#FC5750" }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
@@ -39,8 +39,9 @@ export default function Navbar() {
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
+              <div className="dash"> Dashboard</div>
               <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
+                <MdOutlineDashboardCustomize />{" "}
               </Link>
             </li>
             {SidebarData.map((item, index) => {
