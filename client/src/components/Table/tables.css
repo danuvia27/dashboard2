@@ -6,19 +6,28 @@
   color: white;
 }
 
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .table {
-  background-color: #2b2d52;
+  background-color: #1e1f1c;
   width: 100px;
   margin: 10px;
   margin-left: 4px;
 }
 
-.table table-hover a:hover {
-  background-color: gray;
-  color: white;
-}
-
 .card {
   margin-left: 170px;
   margin-top: 30px;
+  color: black;
+}
+.card-body {
+  background-color: lightgray;
+}
+
+.card-header {
+  background-color: black;
 }
