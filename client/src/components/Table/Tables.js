@@ -2,13 +2,13 @@ import React from "react";
 import { Card, Container } from "react-bootstrap";
 
 import "./tables.css";
-export const Tables = ({ feed, feedol }) => {
+export const Tables = ({ feed, feedol, jsonData }) => {
   return (
     <Container>
       <Card>
-        <Card.Header>Outages</Card.Header>
+        <Card.Header> OneLogin Outages</Card.Header>
         <Card.Body>
-          <table class="table table-bordered">
+          <table className="table table-bordered">
             <thead>
               <tr>
                 <th>Title</th>
@@ -28,9 +28,9 @@ export const Tables = ({ feed, feedol }) => {
                 <td>{}</td>
               </tr>
               <tr>
-                <td>Uma</td>
-                <td>Pune</td>
-                <td>411027</td>
+                <td>{jsonData.service_name}</td>
+                <td>{}</td>
+                <td>{}</td>
               </tr>
             </tbody>
           </table>
@@ -38,9 +38,9 @@ export const Tables = ({ feed, feedol }) => {
       </Card>
 
       <Card>
-        <Card.Header>Outages</Card.Header>
+        <Card.Header> Unifi Outages</Card.Header>
         <Card.Body>
-          <table class="table table-bordered">
+          <table className="table table-bordered">
             <thead>
               <tr>
                 <th>Title</th>
