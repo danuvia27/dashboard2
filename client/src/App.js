@@ -8,12 +8,12 @@ function App() {
   const [feed, setFeed] = useState([]);
   const [feedol, setFeedol] = useState([]);
   const [jsonData, setJsonData] = useState([]);
+  const [azureData, setAzureData] = useState([]);
 
   useEffect(() => {
     fetch("/feed").then((response) =>
       response.json().then((data) => {
         setFeed(data);
-        console.log(data);
       })
     );
   }, []);
@@ -21,7 +21,6 @@ function App() {
     fetch("/feed_ol").then((response) =>
       response.json().then((data) => {
         setFeedol(data);
-        console.log(data);
       })
     );
   }, []);
@@ -34,12 +33,25 @@ function App() {
     );
   }, []);
 
+  useEffect(() => {
+    fetch("/azure_data").then((response) =>
+      response.json().then((data) => {
+        setAzureData(data);
+      })
+    );
+  }, []);
+
   return (
     <>
       <Router>
         <Navbar />
       </Router>
-      <Tables feed={feed} feedol={feedol} jsonData={jsonData} />
+      <Tables
+        feed={feed}
+        feedol={feedol}
+        jsonData={jsonData}
+        azureData={azureData}
+      />
     </>
   );
 }
