@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Container } from "react-bootstrap";
 
 import "./tables.css";
-export const Tables = ({ feed, feedol, jsonData }) => {
+export const Tables = ({ feed, feedol, jsonData, azureData }) => {
   return (
     <Container>
       <Card>
@@ -29,8 +29,8 @@ export const Tables = ({ feed, feedol, jsonData }) => {
               </tr>
               <tr>
                 <td>{jsonData.service_name}</td>
-                <td>{}</td>
-                <td>{}</td>
+                <td>{jsonData.summary}</td>
+                <td>{jsonData.date}</td>
               </tr>
             </tbody>
           </table>
@@ -60,9 +60,9 @@ export const Tables = ({ feed, feedol, jsonData }) => {
                 <td>{}</td>
               </tr>
               <tr>
-                <td>Uma</td>
-                <td>Pune</td>
-                <td>411027</td>
+                <td>{azureData.title}</td>
+                <td>{azureData.link}</td>
+                <td>{azureData.updated}</td>
               </tr>
             </tbody>
           </table>
