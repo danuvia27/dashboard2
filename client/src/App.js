@@ -7,11 +7,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   const [feed, setFeed] = useState([]);
   const [feedol, setFeedol] = useState([]);
+  const [jsonData, setJsonData] = useState([]);
 
   useEffect(() => {
     fetch("/feed").then((response) =>
       response.json().then((data) => {
         setFeed(data);
+        console.log(data);
       })
     );
   }, []);
@@ -24,15 +26,20 @@ function App() {
     );
   }, []);
 
+  useEffect(() => {
+    fetch("/json_data").then((response) =>
+      response.json().then((data) => {
+        setJsonData(data["archive"][99]);
+      })
+    );
+  }, []);
+
   return (
     <>
       <Router>
         <Navbar />
-        <Routes>
-          <Route path="/" />
-        </Routes>
       </Router>
-      <Tables feed={feed} feedol={feedol} />
+      <Tables feed={feed} feedol={feedol} jsonData={jsonData} />
     </>
   );
 }
