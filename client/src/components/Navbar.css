@@ -25,6 +25,11 @@
   top: 0;
 }
 
+.nav-item {
+  font-size: 21px;
+  margin-left: 20px;
+}
+
 .nav-menu.active {
   left: 0;
   transition: 350ms;
@@ -37,10 +42,6 @@
   padding-top: 22px;
   list-style: none;
   height: 60px;
-}
-
-.nav-item {
-  color: none;
 }
 
 .nav-text a {
