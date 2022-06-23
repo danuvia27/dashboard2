@@ -1,12 +1,29 @@
 import React from "react";
 import { Card, Container } from "react-bootstrap";
+import { BsArrowClockwise } from "react-icons/bs";
 
 import "./tables.css";
-export const Tables = ({ feed, feedol, jsonData, azureData }) => {
+export const Tables = ({ feed, feedol, jsonData, azureData, refresh }) => {
   return (
     <Container>
-      <Card>
-        <Card.Header> OneLogin Outages</Card.Header>
+      <Card className="card-widget">
+        <Card.Body>
+          <Card.Title>Card Title</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+          <Card.Text>0</Card.Text>
+          <Card.Link href="#"></Card.Link>
+          <Card.Link href="#"></Card.Link>
+        </Card.Body>
+      </Card>
+      <Card className="table-card">
+        <Card.Header>
+          {" "}
+          <button type="button" className=" refresh-button" onClick={refresh}>
+            {" "}
+            <BsArrowClockwise />
+          </button>{" "}
+          OneLogin Outages{" "}
+        </Card.Header>
         <Card.Body>
           <table className="table table-bordered">
             <thead>
@@ -36,9 +53,18 @@ export const Tables = ({ feed, feedol, jsonData, azureData }) => {
           </table>
         </Card.Body>
       </Card>
+      <Card className="card-widget">
+        <Card.Body>
+          <Card.Title>Card Title</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+          <Card.Text>0</Card.Text>
+          <Card.Link href="#"></Card.Link>
+          <Card.Link href="#"></Card.Link>
+        </Card.Body>
+      </Card>
 
-      <Card>
-        <Card.Header> Unifi Outages</Card.Header>
+      <Card className="table-card">
+        <Card.Header> Unifi Outages </Card.Header>
         <Card.Body>
           <table className="table table-bordered">
             <thead>
