@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Tables } from "./components/Table/Tables";
+import { Tables } from "./components/Tables";
 import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
-import Cards from "./components/Cards";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Team from "./pages/Team";
 import Outages from "./pages/Outages";
@@ -33,7 +32,7 @@ function App() {
   useEffect(() => {
     fetch("/json_data").then((response) =>
       response.json().then((data) => {
-        setJsonData(data["archive"][99]);
+        setJsonData(data["archive"][0]);
       })
     );
   }, []);
@@ -50,19 +49,16 @@ function App() {
     window.location.reload();
   };
 
-  const location = useLocation();
-  console.log("pathname", location.pathname);
   return (
     <>
       <Navbar />
       <Routes>
         <Route>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/team" element={<Team />} />
-          <Route exact path="/outages" element={<Outages />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/outages" element={<Outages />} />
         </Route>
       </Routes>
-
       <Tables
         feed={feed}
         feedol={feedol}
