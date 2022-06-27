@@ -38,8 +38,8 @@ def json_data():
    req = requests.get('http://status.aws.amazon.com/data.json')
    data = json.loads(req.content)
    return  render_template('test.json',
-    data=json.dumps({ 'service_name': data['archive'][99]['service_name'],
-    'date': data['archive'][99]['date'], 'summary': data['archive'][99]['summary']
+    data=json.dumps({ 'service_name': data['archive'][0]['service_name'],
+    'date': data['archive'][0]['date'], 'summary': data['archive'][0]['summary']
 
     }))
 
