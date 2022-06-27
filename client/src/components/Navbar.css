@@ -27,7 +27,14 @@
 
 .nav-item {
   font-size: 21px;
-  margin-left: 20px;
+}
+
+.nav-date {
+  color: white;
+  margin-top: 15px;
+  position: relative;
+  right: 10px;
+  font-size: 16px;
 }
 
 .nav-menu.active {
