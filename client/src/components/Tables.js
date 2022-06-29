@@ -4,14 +4,18 @@ import { BsArrowClockwise } from "react-icons/bs";
 import Cards from "./Cards";
 
 import "./tables.css";
-export const Tables = ({ feed, feedol, jsonData, azureData, refresh }) => {
+export const Tables = ({ feed, feedol, jsonData, azureData, getAllFour }) => {
   return (
     <Container>
       <Cards />
       <Card className="table-card">
         <Card.Header>
           {" "}
-          <button type="button" className=" refresh-button" onClick={refresh}>
+          <button
+            type="button"
+            className=" refresh-button"
+            onClick={getAllFour}
+          >
             {" "}
             <BsArrowClockwise />
           </button>{" "}
