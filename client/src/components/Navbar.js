@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as FaIcons from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { FiAlertOctagon } from "react-icons/fi";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
@@ -17,7 +18,9 @@ export default function Navbar(getAllFour) {
     <>
       <IconContext.Provider value={{ color: "#FC5750" }}>
         <div className="navbar">
-          <Link to="/" className="menu-bars"></Link>
+          <Link to="/" className="menu-bars">
+            <FaIcons.FaBars />
+          </Link>
           <ul className="nav justify-content-end">
             <li className="nav-date">
               <a>
