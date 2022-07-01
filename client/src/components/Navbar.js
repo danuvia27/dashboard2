@@ -9,7 +9,7 @@ import "./Navbar.css";
 import { IconContext } from "react-icons";
 import CurrentDate from "./CurrentDate";
 
-export default function Navbar(getAllFour) {
+export default function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
