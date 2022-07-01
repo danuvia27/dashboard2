@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Tables } from "./components/Tables";
+import { Panels } from "./components/Panels";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -73,7 +73,7 @@ function App() {
           <Route path="/outages" element={<Outages />} />
         </Routes>
       </Router>
-      <Tables
+      <Panels
         feed={feed}
         feedol={feedol}
         jsonData={jsonData}
