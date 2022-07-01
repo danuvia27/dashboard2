@@ -1,0 +1,44 @@
+.table-card {
+  margin-left: 170px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  color: White;
+}
+
+.card-header {
+  background-color: #000000;
+  text-align: center;
+}
+
+.refresh-button {
+  border-radius: 4px;
+  background-color: smoke whitesmoke;
+  width: 5%;
+  box-shadow: none;
+  border: 2px solid lightgrey;
+  float: right;
+  transition-duration: 0.4s;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #000000;
+}
+
+.refresh-button:active {
+  transform: translateY(1px);
+}
+
+.card-widget {
+  float: right;
+  width: 18rem;
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+  left: 60px;
+  top: 30px;
+}
+
+.card-text {
+  font-size: 85px;
+  text-align: center;
+  color: #fb5750;
+}
