@@ -9,30 +9,61 @@ import Team from "./pages/Team";
 import Outages from "./pages/Outages";
 
 function App() {
-  const emptyFeed = {
-    title: "",
-    link: "",
-    updated: "",
+  const emptyFeed = [
+    {
+      title: "",
+      link: "",
+      updated: "",
+    },
+  ];
+
+  const emptyJsonFeed = {
+    archive: [
+      {
+        service_name: "",
+        summary: "",
+        date: "",
+        status: "",
+        details: "",
+        description: "",
+        service: "",
+      },
+    ],
+    current: [
+      {
+        service_name: "",
+        summary: "",
+        date: "",
+        status: "",
+        details: "",
+        description: "",
+        service: "",
+      },
+    ],
   };
 
   const [feed, setFeed] = useState(emptyFeed);
   const [feedol, setFeedol] = useState(emptyFeed);
-  const [jsonData, setJsonData] = useState(emptyFeed);
+  const [jsonData, setJsonData] = useState(emptyJsonFeed);
   const [azureData, setAzureData] = useState(emptyFeed);
+  const [feedolIsActive, setFeedolIsActive] = useState(false);
+  const [feedIsActive, setFeedIsActive] = useState(false);
+  const [jsonIsActive, setJsonIsActive] = useState(false);
+  const [azureIsActive, setAzureIsActive] = useState(false);
 
   const getFeed = () => {
     fetch("/feed")
       .then((response) => response.json())
       .then((data) => {
-        setFeed(data);
+        setFeed([data]);
       });
   };
 
-  const getFeedOl = () => {
+  const getFeedol = () => {
     fetch("/feed_ol")
       .then((response) => response.json())
       .then((data) => {
-        setFeedol(data);
+        setFeedol([data]);
       });
   };
 
@@ -40,7 +71,7 @@ function App() {
     fetch("/json_data")
       .then((response) => response.json())
       .then((data) => {
-        setJsonData(data["archive"][0]);
+        setJsonData(data);
       });
   };
 
@@ -48,13 +79,13 @@ function App() {
     fetch("/azure_data")
       .then((response) => response.json())
       .then((data) => {
-        setAzureData(data);
+        setAzureData([data]);
       });
   };
 
   const getAllFour = () => {
     getFeed();
-    getFeedOl();
+    getFeedol();
     getJsonData();
     getAzureData();
   };
@@ -62,6 +93,90 @@ function App() {
   useEffect(() => {
     getAllFour();
   }, []);
+
+  useEffect(() => {
+    jsonShouldDisplayActive();
+    azureShouldDisplayActive();
+    feedolShouldDisplayActive();
+    feedShouldDisplayActive();
+  });
+
+  //If there's an active incident
+  //(either based on an incident in the past 24 hours,
+  //or if it's in the active section of the AWS json), make the text in the card title red, otherwise make it green.
+
+  const feedolShouldDisplayActive = () => {
+    const feedolHasActiveIncidents = feedol.reduce(
+      (incidentStatus, currentIncident) => {
+        if (
+          isLessThanADayOld(convertToMillies(currentIncident.date)) === true
+        ) {
+          return true;
+        } else {
+          return incidentStatus;
+        }
+      },
+      false
+    );
+    setFeedolIsActive(feedolHasActiveIncidents === true);
+  };
+
+  const feedShouldDisplayActive = () => {
+    const feedHasActiveIncidents = feed.reduce(
+      (incidentStatus, currentIncident) => {
+        if (
+          isLessThanADayOld(convertToMillies(currentIncident.date)) === true
+        ) {
+          return true;
+        } else {
+          return incidentStatus;
+        }
+      },
+      false
+    );
+    setFeedIsActive(feedHasActiveIncidents === true);
+  };
+
+  const jsonShouldDisplayActive = () => {
+    const ArchiveHasActiveIncidents = jsonData.archive.reduce(
+      (incidentStatus, currentIncident) => {
+        if (isLessThanADayOld(currentIncident.date) === true) {
+          return true;
+        } else {
+          return incidentStatus;
+        }
+      },
+      false
+    );
+
+    setJsonIsActive(
+      ArchiveHasActiveIncidents === true || jsonData.current.length > 0
+    );
+  };
+
+  const azureShouldDisplayActive = () => {
+    const AzureHasActiveIncidents = azureData.reduce(
+      (incidentStatus, currentIncident) => {
+        if (
+          isLessThanADayOld(convertToMillies(currentIncident.date)) === true
+        ) {
+          return true;
+        } else {
+          return incidentStatus;
+        }
+      },
+      false
+    );
+    setAzureIsActive(AzureHasActiveIncidents === true);
+  };
+
+  const isLessThanADayOld = (dateToCheck) => {
+    const todaysDate = Date.now();
+
+    return todaysDate - dateToCheck < 86400000;
+  };
+
+  const convertToMillies = (dateToConvert) => Date.parse(dateToConvert);
 
   return (
     <>
@@ -79,6 +194,11 @@ function App() {
         jsonData={jsonData}
         azureData={azureData}
         getAllFour={getAllFour}
+        feedolIsActive={feedolIsActive}
+        feedIsActive={feedIsActive}
+        jsonIsActive={jsonIsActive}
+        azureIsActive={azureIsActive}
+        jsonShouldDisplayActive={jsonShouldDisplayActive}
       />
     </>
   );
