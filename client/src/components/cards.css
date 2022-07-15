@@ -1,0 +1,23 @@
+.card-widget {
+  float: right;
+  width: 18rem;
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+  left: 60px;
+  top: 30px;
+}
+
+.card-text {
+  font-size: 85px;
+  text-align: center;
+  color: #fb5750;
+}
+
+.card-body {
+  background-color: black;
+}
+
+h3 {
+  color: whitesmoke;
+}
