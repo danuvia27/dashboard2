@@ -3,11 +3,22 @@ import { Collapse } from "antd";
 import { Card, Container } from "react-bootstrap";
 import { BsArrowClockwise } from "react-icons/bs";
 import "./panels.css";
-import "antd/dist/antd.css";
+import "antd/dist/antd.min.css";
 
 const { Panel } = Collapse;
 
-export const Panels = ({ feed, feedol, jsonData, azureData, getAllFour }) => {
+export const Panels = ({
+  feed,
+  feedol,
+  jsonData,
+  azureData,
+  getAllFour,
+  feedolIsActive,
+  feedIsActive,
+  jsonIsActive,
+  azureIsActive,
+  jsonShouldDisplayActive,
+}) => {
   return (
     <Container>
       <Card className="table-card">
@@ -24,18 +35,72 @@ export const Panels = ({ feed, feedol, jsonData, azureData, getAllFour }) => {
           Upstream Outages{" "}
         </Card.Header>
         <Collapse accordion>
-          <Panel header={feedol.title} key="1">
-            <p>{}</p>
+          <Panel
+            className={feedolIsActive ? "makeItRed" : "makeItGreen"}
+            header={feedol.map((item) => (
+              <p>{item.title}</p>
+            ))}
+            key="1"
+          >
+            {feedol.map((item) => (
+              <div>
+                <p>{item.link}</p>
+                <p>{item.updated}</p>
+              </div>
+            ))}
           </Panel>
-          <Panel header={feed.title} key="2">
-            <p>{}</p>
+          <p>{}</p>
+          <Panel
+            className={feedIsActive ? "makeItRed" : "makeItGreen"}
+            header={feed.map((item) => (
+              <p>{item.title}</p>
+            ))}
+            key="2"
+          >
+            {feed.map((item) => (
+              <div>
+                <p>{item.link}</p>
+                <p>{item.updated}</p>
+              </div>
+            ))}
           </Panel>
-          <Panel header={azureData.title} key="3">
-            <p>{}</p>
+          <p>{}</p>
+          <Panel
+            className={azureIsActive ? "makeItRed" : "makeItGreen"}
+            header={azureData.map((item) => (
+              <p>{item.title}</p>
+            ))}
+            key="3"
+          >
+            {azureData.map((item) => (
+              <div>
+                <p>{item.link}</p>
+                <p>{item.updated}</p>
+              </div>
+            ))}
           </Panel>
-          <Panel header={jsonData.service_name} key="4">
-            <p>{}</p>
+          <p>{}</p>
+          <Panel
+            className={jsonIsActive ? "makeItRed" : "makeItGreen"}
+            header="AWS Status"
+            key="4"
+          >
+            {jsonData.archive.map((item) => (
+              <div>
+                <p
+                  className={
+                    jsonShouldDisplayActive(item.date)
+                      ? "theRedClassname"
+                      : "theGreenClassname"
+                  }
+                >
+                  {item.service_name}
+                </p>
+                <p>{item.summary}</p>
+              </div>
+            ))}
           </Panel>
+          <p>{}</p>
         </Collapse>
       </Card>
     </Container>
