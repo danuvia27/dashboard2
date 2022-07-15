@@ -29,7 +29,8 @@ def get_feeds_ol():
 
     return jsonify(title=first_article.title,
     link=first_article.link,
-    updated=first_article.updated)
+    updated=first_article.updated,
+    description=first_article.description)
 
 
 @app.route("/json_data", methods=['POST','GET'])
