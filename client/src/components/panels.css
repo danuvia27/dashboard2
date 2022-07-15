@@ -2,12 +2,13 @@
   margin-left: 170px;
   margin-top: 40px;
   margin-bottom: 50px;
-  color: White;
+  color: black;
 }
 
 .card-header {
   background-color: #000000;
   text-align: center;
+  font-size: 18px;
 }
 
 .refresh-button {
@@ -27,18 +28,15 @@
   transform: translateY(1px);
 }
 
-.card-widget {
-  float: right;
-  width: 18rem;
-  padding: 8px;
-  border-radius: 4px;
-  position: relative;
-  left: 60px;
-  top: 30px;
+.ant-collapse-header {
+  font-size: 16px;
+  font-weight: bolder;
 }
 
-.card-text {
-  font-size: 85px;
-  text-align: center;
-  color: #fb5750;
+.makeItRed .ant-collapse-header-text {
+  color: red;
+}
+
+.makeItGreen .ant-collapse-header-text {
+  color: green;
 }
