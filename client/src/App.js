@@ -91,7 +91,9 @@ function App() {
   };
 
   useEffect(() => {
-    getAllFour();
+    setInterval(() => {
+      setTimeout(getAllFour());
+    }, 5000);
   }, []);
 
   useEffect(() => {
