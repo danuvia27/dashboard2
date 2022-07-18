@@ -22,18 +22,7 @@ export const Panels = ({
   return (
     <Container>
       <Card className="table-card">
-        <Card.Header>
-          {" "}
-          <button
-            type="button"
-            className=" refresh-button"
-            onClick={getAllFour}
-          >
-            {" "}
-            <BsArrowClockwise />
-          </button>{" "}
-          Upstream Outages{" "}
-        </Card.Header>
+        <Card.Header>Upstream Outages </Card.Header>
         <Collapse accordion>
           <Panel
             className={feedolIsActive ? "makeItRed" : "makeItGreen"}
